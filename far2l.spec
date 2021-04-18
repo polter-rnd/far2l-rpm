@@ -17,6 +17,9 @@ Source0: https://github.com/elfmz/far2l/archive/%{commit}/%{name}-%{shortcommit}
 BuildRequires: gawk m4
 BuildRequires: cmake gcc-c++
 BuildRequires: wxGTK3-devel
+BuildRequires: xerces-c-devel
+BuildRequires: spdlog-devel
+BuildRequires: uchardet-devel
 BuildRequires: libssh-devel
 BuildRequires: openssl-devel
 BuildRequires: libsmbclient-devel
