@@ -1,9 +1,9 @@
-%global commit 43057bdfe76532b2532c94149685df62e9d25205
+%global commit 5131ab4691c1efb0e2618cd1ea509d1e5266a82e
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global build_time %(date +"%Y%m%d")
 
 Name: far2l
-Version: 2.0alpha
+Version: 2.3
 Release: git%{build_time}%{?dist}
 
 Summary: Linux port of FAR v2
