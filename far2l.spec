@@ -1,4 +1,4 @@
-%global commit 092403a4ec05e0cc8e6bf9e300a793b587eb9071
+%global commit 3baf998800a8dae990daedfae39a75c0c1208473
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global build_time %(date +"%Y%m%d")
 
@@ -78,6 +78,10 @@ cmake -DUSEWX=yes \
 %_datadir/applications/%name.desktop
 
 %changelog
+* Thu Sep 2 2021 Pavel Artsishevsky <polter.rnd@gmail.com> 2.3
+- updated build requirements
+- bump upstream commit
+
 * Wed Jul 1 2020 Pavel Artsishevsky <polter.rnd@gmail.com> 2.0-alpha
 - removed glib2
 - added with plugin dependencies
