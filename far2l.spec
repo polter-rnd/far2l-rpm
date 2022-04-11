@@ -1,4 +1,4 @@
-%global commit 9dfa5898fca3358643aca34cdd3fd32386d48a28
+%global commit bcac692e0e2b40fdb9437db741b14e691ab4a757
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global build_time %(date +"%Y%m%d")
 
@@ -95,6 +95,9 @@ cmake -DUSEWX=no \
 %_datadir/applications/far2l.desktop
 
 %changelog
+* Mon Apr 11 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4-beta
+- bump upstream commit (bcac692)
+
 * Mon Apr 11 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.3
 - add pure console version (far2l-tty)
 
