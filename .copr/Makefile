@@ -4,4 +4,4 @@ srpm:
 	fi
 
 	rpmbuild --define "_sourcedir $(outdir)" --define "_srcrpmdir $(outdir)" \
-	         --define="_disable_source_fetch 0" -bs "$(spec)";
+	         --define="_disable_source_fetch 0" -bs $(spec);
