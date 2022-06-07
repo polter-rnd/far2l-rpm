@@ -1,4 +1,4 @@
-%global commit 518ebeccb510ac62cee050f3fecf40f0704ffa95
+%global commit f788d3716035a4aca2d6857bbe21f5050e6eacf1
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global build_time %(date +"%Y%m%d")
 
