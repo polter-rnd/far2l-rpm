@@ -1,4 +1,4 @@
-%global commit f788d3716035a4aca2d6857bbe21f5050e6eacf1
+%global commit 78c2802c686a695a4acf1a470ae3df449c7bb2d7
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global build_time %(date +"%Y%m%d")
 
@@ -24,7 +24,7 @@ Source0: https://github.com/elfmz/far2l/archive/%{commit}/far2l-%{shortcommit}.t
 BuildRequires: gawk m4
 BuildRequires: cmake gcc-c++
 %if %{with gui}
-BuildRequires: wxGTK3-devel
+BuildRequires: (wxGTK-devel >= 3.0 or wxGTK3-devel)
 %endif
 BuildRequires: xerces-c-devel
 BuildRequires: spdlog-devel
@@ -95,6 +95,10 @@ cmake -DUSEWX=no \
 %_datadir/applications/far2l.desktop
 
 %changelog
+* Tue Jul 5 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4-beta
+- bump upstream commit (78c2802)
+- require wxGTK3 or wxGTK (which is 3.1 on Fedora)
+
 * Mon Apr 11 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4-beta
 - bump upstream commit (bcac692)
 
