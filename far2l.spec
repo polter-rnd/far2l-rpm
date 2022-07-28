@@ -1,4 +1,4 @@
-%global commit 78c2802c686a695a4acf1a470ae3df449c7bb2d7
+%global commit 920f22abae00f9f7d0592d3d21f78dc82a0c2f3a
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global build_time %(date +"%Y%m%d")
 
@@ -10,7 +10,7 @@ Conflicts: far2l-tty
 Name: far2l-tty
 Conflicts: far2l
 %endif
-Version: 2.3
+Version: 2.4
 Release: git%{build_time}%{?dist}
 
 Summary: Linux port of FAR v2
@@ -20,6 +20,10 @@ License: GPLv2
 Url: https://github.com/elfmz/far2l
 
 Source0: https://github.com/elfmz/far2l/archive/%{commit}/far2l-%{shortcommit}.tar.gz
+
+# Changes from VPROFi <v.l.snake.2000@gmail.com>
+# https://github.com/VPROFi/far2l
+Patch0: VPROFi-initial-changes.patch
 
 BuildRequires: gawk m4
 BuildRequires: cmake gcc-c++
@@ -53,7 +57,7 @@ Used code from projects:
 
 
 %prep
-%autosetup -n far2l-%{commit}
+%autosetup -n far2l-%{commit} -p1
 
 %build
 %set_build_flags
@@ -95,6 +99,10 @@ cmake -DUSEWX=no \
 %_datadir/applications/far2l.desktop
 
 %changelog
+* Thu Jul 28 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4-beta
+- bump upstream commit (920f22a)
+- add changes from VPROFi <v.l.snake.2000@gmail.com>
+
 * Tue Jul 5 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4-beta
 - bump upstream commit (78c2802)
 - require wxGTK3 or wxGTK (which is 3.1 on Fedora)
