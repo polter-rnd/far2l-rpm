@@ -1,4 +1,4 @@
-%global commit 920f22abae00f9f7d0592d3d21f78dc82a0c2f3a
+%global commit e4088e64883f13f1dac1367808ea16f75ca614b2
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global build_time %(date +"%Y%m%d")
 
@@ -99,6 +99,9 @@ cmake -DUSEWX=no \
 %_datadir/applications/far2l.desktop
 
 %changelog
+* Mon Aug 29 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4-beta
+- bump upstream commit (e4088e6)
+
 * Thu Jul 28 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4-beta
 - bump upstream commit (920f22a)
 - add changes from VPROFi <v.l.snake.2000@gmail.com>
