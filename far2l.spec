@@ -1,6 +1,5 @@
-%global commit e4088e64883f13f1dac1367808ea16f75ca614b2
+%global commit e37a3a408f702bef9bf5326fa058e6afa1c4d90d
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global build_time %(date +"%Y%m%d")
 
 %bcond_without gui
 %if %{with gui}
@@ -10,8 +9,8 @@ Conflicts: far2l-tty
 Name: far2l-tty
 Conflicts: far2l
 %endif
-Version: 2.4
-Release: git%{build_time}%{?dist}
+Version: 2.4.1
+Release: 1.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -21,14 +20,12 @@ Url: https://github.com/elfmz/far2l
 
 Source0: https://github.com/elfmz/far2l/archive/%{commit}/far2l-%{shortcommit}.tar.gz
 
-# Changes from VPROFi <v.l.snake.2000@gmail.com>
-# https://github.com/VPROFi/far2l
-Patch0: VPROFi-initial-changes.patch
-
 BuildRequires: gawk m4
 BuildRequires: cmake gcc-c++
 %if %{with gui}
 BuildRequires: (wxGTK-devel >= 3.0 or wxGTK3-devel)
+BuildRequires: libX11-devel
+BuildRequires: libXi-devel
 %endif
 BuildRequires: xerces-c-devel
 BuildRequires: spdlog-devel
@@ -99,6 +96,10 @@ cmake -DUSEWX=no \
 %_datadir/applications/far2l.desktop
 
 %changelog
+* Wed Nov 23 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4.1-beta
+- bump upstream commit (e37a3a4)
+- remove patch from VPROFi (no more compatible with upstream)
+
 * Mon Aug 29 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4-beta
 - bump upstream commit (e4088e6)
 
