@@ -1,4 +1,4 @@
-%global commit e37a3a408f702bef9bf5326fa058e6afa1c4d90d
+%global commit 8150a2166a95789f9df291a52d024fecaadb3b12
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %bcond_without gui
@@ -10,7 +10,7 @@ Name: far2l-tty
 Conflicts: far2l
 %endif
 Version: 2.4.1
-Release: 1.git%{shortcommit}%{?dist}
+Release: 2.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -37,6 +37,7 @@ BuildRequires: libnfs-devel
 BuildRequires: neon-devel
 BuildRequires: libarchive-devel
 BuildRequires: pcre2-devel
+BuildRequires: perl-interpreter
 
 %description
 Linux port of FAR v2
@@ -96,6 +97,9 @@ cmake -DUSEWX=no \
 %_datadir/applications/far2l.desktop
 
 %changelog
+* Wed Nov 30 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4.1-beta
+- bump upstream commit (8150a21)
+
 * Wed Nov 23 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4.1-beta
 - bump upstream commit (e37a3a4)
 - remove patch from VPROFi (no more compatible with upstream)
