@@ -1,4 +1,4 @@
-%global commit 0fd2e7d375787b93e03be32bfcab76c06ad8f875
+%global commit 3a233d682b7b13a87d788b964e3a221b91253d28
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %bcond_without gui
@@ -10,7 +10,7 @@ Name: far2l-tty
 Conflicts: far2l
 %endif
 Version: 2.4.1
-Release: 3.git%{shortcommit}%{?dist}
+Release: 4.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -97,6 +97,9 @@ cmake -DUSEWX=no \
 %_datadir/applications/far2l.desktop
 
 %changelog
+* Fri Dec 16 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4.1-beta
+- bump upstream commit (3a233d6)
+
 * Sun Dec 04 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4.1-beta
 - bump upstream commit (0fd2e7d)
 
