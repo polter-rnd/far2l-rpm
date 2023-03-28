@@ -1,4 +1,4 @@
-%global commit 0c3eaa7cbdb84725ac265853501815bcff762f30
+%global commit 39489dd805e93c9f619bb2be0877e19e2daaffb8
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %bcond_without gui
@@ -9,8 +9,8 @@ Conflicts: far2l-tty
 Name: far2l-tty
 Conflicts: far2l
 %endif
-Version: 2.4.1
-Release: 5.git%{shortcommit}%{?dist}
+Version: 2.5.0
+Release: 1.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -33,7 +33,10 @@ BuildRequires: uchardet-devel
 BuildRequires: libssh-devel
 BuildRequires: openssl-devel
 BuildRequires: libsmbclient-devel
+%if ! 0%{?rhel} || 0%{?rhel} < 9
+# libnfs is not in EPEL since RHEL 9
 BuildRequires: libnfs-devel
+%endif
 BuildRequires: neon-devel
 BuildRequires: libarchive-devel
 BuildRequires: pcre2-devel
@@ -95,8 +98,15 @@ cmake -DUSEWX=no \
 %_datadir/icons/hicolor/72x72/apps/far2l.svg
 %_datadir/icons/hicolor/96x96/apps/far2l.svg
 %_datadir/applications/far2l.desktop
+%{_mandir}/man1/far2l.*
+%lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Tue Mar 28 2023 Pavel Artsishevsky <polter.rnd@gmail.com> 2.5.0-beta
+- bump upstream commit (39489dd)
+- add support for RHEL9 (remove libnfs dependency)
+- add man pages
+
 * Tue Dec 20 2022 Pavel Artsishevsky <polter.rnd@gmail.com> 2.4.1-beta
 - bump upstream commit (0c3eaa7)
 
