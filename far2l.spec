@@ -1,4 +1,4 @@
-%global commit 39489dd805e93c9f619bb2be0877e19e2daaffb8
+%global commit 7016f9690665fcf69ac0a6c71a07aa68ce017c64
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %bcond_without gui
@@ -10,7 +10,7 @@ Name: far2l-tty
 Conflicts: far2l
 %endif
 Version: 2.5.0
-Release: 1.git%{shortcommit}%{?dist}
+Release: 2.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -102,6 +102,9 @@ cmake -DUSEWX=no \
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Wed Mar 29 2023 Pavel Artsishevsky <polter.rnd@gmail.com> 2.5.0-beta
+- bump upstream commit (7016f96)
+
 * Tue Mar 28 2023 Pavel Artsishevsky <polter.rnd@gmail.com> 2.5.0-beta
 - bump upstream commit (39489dd)
 - add support for RHEL9 (remove libnfs dependency)
