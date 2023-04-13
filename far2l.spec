@@ -1,4 +1,4 @@
-%global commit 8fa9210114482f6bdd15c772d85d1a8d57d3fd26
+%global commit b2f956fd6b5acbf4970102d72bccdb5df892cef4
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %bcond_without gui
@@ -10,7 +10,7 @@ Name: far2l-tty
 Conflicts: far2l
 %endif
 Version: 2.5.0
-Release: 3.git%{shortcommit}%{?dist}
+Release: 4.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -43,9 +43,9 @@ BuildRequires: pcre2-devel
 BuildRequires: perl-interpreter
 
 %description
-Linux port of FAR v2
-ALPHA VERSION.
-Currently interesting only for enthusiasts!!!
+Linux fork of FAR Manager v2
+BETA VERSION.
+Use on your own risk!
 
 License: GNU/GPLv2
 
@@ -102,6 +102,9 @@ cmake -DUSEWX=no \
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Thu Apr 13 2023 Pavel Artsishevsky <polter.rnd@gmail.com> 2.5.0-beta
+- bump upstream commit (b2f956f)
+
 * Mon Apr 3 2023 Pavel Artsishevsky <polter.rnd@gmail.com> 2.5.0-beta
 - bump upstream commit (8fa9210)
 
