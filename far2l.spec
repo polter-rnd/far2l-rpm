@@ -1,6 +1,10 @@
 %global commit 5ee6a40bad3a6c4aafd9e13c3e7cbea19bad7cc1
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-
+%if 0%{?fedora} >= 38
+# Since F38 the build flags include D_FORTIFY_SOURCE=3 but this flag caused far2l to crash in some cases
+# https://fedoraproject.org/wiki/Changes/Add_FORTIFY_SOURCE=3_to_distribution_build_flags
+%define _fortify_level 2
+%endif
 %bcond_without gui
 %if %{with gui}
 Name: far2l
@@ -103,6 +107,9 @@ cmake -DUSEWX=no \
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Sun Aug 13 2023 icesvz <icesvz@gmail.com> 2.5.1-beta
+- force _fortify_level 2 to prevent F38 crashing
+
 * Sat Jul 8 2023 Pavel Artsishevsky <polter.rnd@gmail.com> 2.5.1-beta
 - bump upstream commit (5ee6a40)
 
