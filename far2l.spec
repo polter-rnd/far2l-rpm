@@ -1,4 +1,4 @@
-%global commit 0b52136800a35b6ed08f2500f2822be740494cec
+%global commit 2068c4681098af1206156ca1297cc6cb9aa48721
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %bcond_without gui
 %if %{with gui}
@@ -9,7 +9,7 @@ Name: far2l-tty
 Conflicts: far2l
 %endif
 Version: 2.6.1
-Release: 1.git%{shortcommit}%{?dist}
+Release: 2.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -19,7 +19,6 @@ Url: https://github.com/elfmz/far2l
 
 Source0: https://github.com/elfmz/far2l/archive/%{commit}/far2l-%{shortcommit}.tar.gz
 
-BuildRequires: gawk m4
 BuildRequires: cmake gcc-c++
 %if %{with gui}
 BuildRequires: (wxGTK-devel >= 3.0 or wxGTK3-devel)
@@ -27,7 +26,6 @@ BuildRequires: libX11-devel
 BuildRequires: libXi-devel
 %endif
 BuildRequires: xerces-c-devel
-BuildRequires: spdlog-devel
 BuildRequires: uchardet-devel
 BuildRequires: libssh-devel
 BuildRequires: openssl-devel
@@ -102,6 +100,10 @@ cmake -DUSEWX=no \
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Sat May 18 2024 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.1-2.git2068c46
+- bump upstream commit (2068c46)
+- remove obsolete build dependencies
+
 * Sat Apr 13 2024 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.1-1.git0b52136
 - bump upstream commit (0b52136)
 - bump version to 2.6.1
