@@ -1,4 +1,4 @@
-%global commit 2068c4681098af1206156ca1297cc6cb9aa48721
+%global commit 9ce5dea64dec1da8af62e9b4d85dd4a5d2d28e00
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %bcond_without gui
 %if %{with gui}
@@ -8,8 +8,8 @@ Conflicts: far2l-tty
 Name: far2l-tty
 Conflicts: far2l
 %endif
-Version: 2.6.1
-Release: 2.git%{shortcommit}%{?dist}
+Version: 2.6.2
+Release: 1.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -100,6 +100,10 @@ cmake -DUSEWX=no \
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Sat Jul 20 2024 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.2-1.git9ce5dea
+- bump upstream commit (9ce5dea)
+- remove obsolete build dependencies
+
 * Sat May 18 2024 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.1-2.git2068c46
 - bump upstream commit (2068c46)
 - remove obsolete build dependencies
