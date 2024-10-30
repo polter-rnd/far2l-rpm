@@ -1,4 +1,4 @@
-%global commit a045fe52e8884ba8aa6f3dda3fbc3f7c549b736c
+%global commit c35f97e275ef5bbbd8f292207e8d28b6e8f4af1d
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %bcond_without gui
 %if %{with gui}
@@ -9,7 +9,7 @@ Name: far2l-tty
 Conflicts: far2l
 %endif
 Version: 2.6.3
-Release: 1.git%{shortcommit}%{?dist}
+Release: 2.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -30,6 +30,7 @@ BuildRequires: uchardet-devel
 BuildRequires: libssh-devel
 BuildRequires: openssl-devel
 BuildRequires: libsmbclient-devel
+BuildRequires: libxml2-devel
 %if ! 0%{?rhel} || 0%{?rhel} < 9
 # libnfs is not in EPEL since RHEL 9
 BuildRequires: libnfs-devel
@@ -83,23 +84,41 @@ cmake -DUSEWX=no \
 %_prefix/lib/far2l/
 %_datadir/far2l/
 %_datadir/icons/far2l.svg
+%_datadir/icons/far2ledit.svg
 %_datadir/icons/hicolor/1024x1024/apps/far2l.svg
+%_datadir/icons/hicolor/1024x1024/apps/far2ledit.svg
 %_datadir/icons/hicolor/128x128/apps/far2l.svg
+%_datadir/icons/hicolor/128x128/apps/far2ledit.svg
 %_datadir/icons/hicolor/16x16/apps/far2l.svg
+%_datadir/icons/hicolor/16x16/apps/far2ledit.svg
 %_datadir/icons/hicolor/192x192/apps/far2l.svg
+%_datadir/icons/hicolor/192x192/apps/far2ledit.svg
 %_datadir/icons/hicolor/24x24/apps/far2l.svg
+%_datadir/icons/hicolor/24x24/apps/far2ledit.svg
 %_datadir/icons/hicolor/256x256/apps/far2l.svg
+%_datadir/icons/hicolor/256x256/apps/far2ledit.svg
 %_datadir/icons/hicolor/32x32/apps/far2l.svg
+%_datadir/icons/hicolor/32x32/apps/far2ledit.svg
 %_datadir/icons/hicolor/48x48/apps/far2l.svg
+%_datadir/icons/hicolor/48x48/apps/far2ledit.svg
 %_datadir/icons/hicolor/512x512/apps/far2l.svg
+%_datadir/icons/hicolor/512x512/apps/far2ledit.svg
 %_datadir/icons/hicolor/64x64/apps/far2l.svg
+%_datadir/icons/hicolor/64x64/apps/far2ledit.svg
 %_datadir/icons/hicolor/72x72/apps/far2l.svg
+%_datadir/icons/hicolor/72x72/apps/far2ledit.svg
 %_datadir/icons/hicolor/96x96/apps/far2l.svg
+%_datadir/icons/hicolor/96x96/apps/far2ledit.svg
 %_datadir/applications/far2l.desktop
+%_datadir/applications/far2ledit.desktop
+%_datadir/bash-completion/completions/far2l
 %{_mandir}/man1/far2l.*
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Wed Oct 30 2024 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.3-2.gitc35f97e
+- bump upstream commit (c35f97e)
+
 * Tue Aug 13 2024 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.3-1.gita045fe5
 - bump upstream commit (a045fe5)
 - bump version to 2.6.3
@@ -132,7 +151,7 @@ cmake -DUSEWX=no \
 * Fri Oct 20 2023 Pavel Artsishevsky <polter.rnd@gmail.com> 2.5.2-beta
 - bump upstream commit (cf7ecd1)
 
-* Wed Sep 28 2023 Pavel Artsishevsky <polter.rnd@gmail.com> 2.5.2-beta
+* Thu Sep 28 2023 Pavel Artsishevsky <polter.rnd@gmail.com> 2.5.2-beta
 - bump upstream commit (2e7d52f)
 
 * Wed Sep 27 2023 Pavel Artsishevsky <polter.rnd@gmail.com> 2.5.2-beta
