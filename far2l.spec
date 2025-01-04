@@ -1,4 +1,4 @@
-%global commit c35f97e275ef5bbbd8f292207e8d28b6e8f4af1d
+%global commit 9fb213347946d753d55f9c95ac7f9cb171230894
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %bcond_without gui
 %if %{with gui}
@@ -8,8 +8,8 @@ Conflicts: far2l-tty
 Name: far2l-tty
 Conflicts: far2l
 %endif
-Version: 2.6.3
-Release: 2.git%{shortcommit}%{?dist}
+Version: 2.6.4
+Release: 1.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -37,7 +37,6 @@ BuildRequires: libnfs-devel
 %endif
 BuildRequires: neon-devel
 BuildRequires: libarchive-devel
-BuildRequires: pcre2-devel
 BuildRequires: perl-interpreter
 
 %description
@@ -78,44 +77,59 @@ cmake -DUSEWX=no \
 %install
 %make_install
 
+%if ! %{with gui}
+    # Do not install GUI desktop files for tty-only version
+    rm -f %{buildroot}%{_datadir}/applications/far2l.desktop
+    rm -f %{buildroot}%{_datadir}/applications/far2ledit.desktop
+%endif
+
 %files
-%_bindir/far2l
-%_bindir/far2ledit
-%_prefix/lib/far2l/
-%_datadir/far2l/
-%_datadir/icons/far2l.svg
-%_datadir/icons/far2ledit.svg
-%_datadir/icons/hicolor/1024x1024/apps/far2l.svg
-%_datadir/icons/hicolor/1024x1024/apps/far2ledit.svg
-%_datadir/icons/hicolor/128x128/apps/far2l.svg
-%_datadir/icons/hicolor/128x128/apps/far2ledit.svg
-%_datadir/icons/hicolor/16x16/apps/far2l.svg
-%_datadir/icons/hicolor/16x16/apps/far2ledit.svg
-%_datadir/icons/hicolor/192x192/apps/far2l.svg
-%_datadir/icons/hicolor/192x192/apps/far2ledit.svg
-%_datadir/icons/hicolor/24x24/apps/far2l.svg
-%_datadir/icons/hicolor/24x24/apps/far2ledit.svg
-%_datadir/icons/hicolor/256x256/apps/far2l.svg
-%_datadir/icons/hicolor/256x256/apps/far2ledit.svg
-%_datadir/icons/hicolor/32x32/apps/far2l.svg
-%_datadir/icons/hicolor/32x32/apps/far2ledit.svg
-%_datadir/icons/hicolor/48x48/apps/far2l.svg
-%_datadir/icons/hicolor/48x48/apps/far2ledit.svg
-%_datadir/icons/hicolor/512x512/apps/far2l.svg
-%_datadir/icons/hicolor/512x512/apps/far2ledit.svg
-%_datadir/icons/hicolor/64x64/apps/far2l.svg
-%_datadir/icons/hicolor/64x64/apps/far2ledit.svg
-%_datadir/icons/hicolor/72x72/apps/far2l.svg
-%_datadir/icons/hicolor/72x72/apps/far2ledit.svg
-%_datadir/icons/hicolor/96x96/apps/far2l.svg
-%_datadir/icons/hicolor/96x96/apps/far2ledit.svg
-%_datadir/applications/far2l.desktop
-%_datadir/applications/far2ledit.desktop
-%_datadir/bash-completion/completions/far2l
+%{_bindir}/far2l
+%{_bindir}/far2ledit
+%{_prefix}/lib/far2l/
+%{_datadir}/far2l/
+%{_datadir}/icons/far2l.svg
+%{_datadir}/icons/far2ledit.svg
+%{_datadir}/icons/hicolor/1024x1024/apps/far2l.svg
+%{_datadir}/icons/hicolor/1024x1024/apps/far2ledit.svg
+%{_datadir}/icons/hicolor/128x128/apps/far2l.svg
+%{_datadir}/icons/hicolor/128x128/apps/far2ledit.svg
+%{_datadir}/icons/hicolor/16x16/apps/far2l.svg
+%{_datadir}/icons/hicolor/16x16/apps/far2ledit.svg
+%{_datadir}/icons/hicolor/192x192/apps/far2l.svg
+%{_datadir}/icons/hicolor/192x192/apps/far2ledit.svg
+%{_datadir}/icons/hicolor/24x24/apps/far2l.svg
+%{_datadir}/icons/hicolor/24x24/apps/far2ledit.svg
+%{_datadir}/icons/hicolor/256x256/apps/far2l.svg
+%{_datadir}/icons/hicolor/256x256/apps/far2ledit.svg
+%{_datadir}/icons/hicolor/32x32/apps/far2l.svg
+%{_datadir}/icons/hicolor/32x32/apps/far2ledit.svg
+%{_datadir}/icons/hicolor/48x48/apps/far2l.svg
+%{_datadir}/icons/hicolor/48x48/apps/far2ledit.svg
+%{_datadir}/icons/hicolor/512x512/apps/far2l.svg
+%{_datadir}/icons/hicolor/512x512/apps/far2ledit.svg
+%{_datadir}/icons/hicolor/64x64/apps/far2l.svg
+%{_datadir}/icons/hicolor/64x64/apps/far2ledit.svg
+%{_datadir}/icons/hicolor/72x72/apps/far2l.svg
+%{_datadir}/icons/hicolor/72x72/apps/far2ledit.svg
+%{_datadir}/icons/hicolor/96x96/apps/far2l.svg
+%{_datadir}/icons/hicolor/96x96/apps/far2ledit.svg
+%{_datadir}/applications/far2l-tty.desktop
+%{_datadir}/applications/far2ledit-tty.desktop
+%if %{with gui}
+%{_datadir}/applications/far2l.desktop
+%{_datadir}/applications/far2ledit.desktop
+%endif
+%{_datadir}/bash-completion/completions/far2l
 %{_mandir}/man1/far2l.*
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Sat Jan 4 2025 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.4-1.git9fb2133
+- bump upstream commit (9fb2133)
+- bump version to 2.6.4
+- remove obsolete build dependencies (pcre2)
+
 * Wed Oct 30 2024 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.3-2.gitc35f97e
 - bump upstream commit (c35f97e)
 
