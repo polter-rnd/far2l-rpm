@@ -9,7 +9,7 @@ Name: far2l-tty
 Conflicts: far2l
 %endif
 Version: 2.6.4
-Release: 3.git%{shortcommit}%{?dist}
+Release: 4.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -39,7 +39,9 @@ BuildRequires: libnfs-devel
 %endif
 BuildRequires: neon-devel
 BuildRequires: libarchive-devel
+BuildRequires: libicu-devel
 BuildRequires: perl-interpreter
+BuildRequires: perl-open
 
 %description
 Linux fork of FAR Manager v2
@@ -66,13 +68,15 @@ cmake -DUSEWX=yes \
     -DCMAKE_C_FLAGS_RELEASE:STRING="-DNDEBUG" \
     -DCMAKE_CXX_FLAGS_RELEASE:STRING="-DNDEBUG" \
     -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
-    -DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} .
+    -DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} \
+    -DICU_MODE=build .
 %else
 cmake -DUSEWX=no \
     -DCMAKE_C_FLAGS_RELEASE:STRING="-DNDEBUG" \
     -DCMAKE_CXX_FLAGS_RELEASE:STRING="-DNDEBUG" \
     -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
-    -DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} .
+    -DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} \
+    -DICU_MODE=build .
 %endif
 %make_build
 
@@ -127,6 +131,9 @@ cmake -DUSEWX=no \
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Mon Feb 17 2025 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.4-4.gitb57e232
+- fix missing help pages
+
 * Mon Feb 17 2025 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.4-3.gitb57e232
 - bump upstream commit (b57e232)
 - fix compilation error on Fedora 42
