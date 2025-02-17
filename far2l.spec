@@ -1,4 +1,4 @@
-%global commit 3a4dfaf77849a71965f5cd01df3edcca6fe8fa8c
+%global commit b57e232c6b709f7eabbca65ee635c702f811d31b
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %bcond_without gui
 %if %{with gui}
@@ -9,7 +9,7 @@ Name: far2l-tty
 Conflicts: far2l
 %endif
 Version: 2.6.4
-Release: 2.git%{shortcommit}%{?dist}
+Release: 3.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -18,6 +18,8 @@ License: GPLv2
 Url: https://github.com/elfmz/far2l
 
 Source0: https://github.com/elfmz/far2l/archive/%{commit}/far2l-%{shortcommit}.tar.gz
+
+Patch0: fix-UnicodeString-compilation-f42.patch
 
 BuildRequires: cmake gcc-c++
 %if %{with gui}
@@ -125,6 +127,10 @@ cmake -DUSEWX=no \
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Mon Feb 17 2025 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.4-3.gitb57e232
+- bump upstream commit (b57e232)
+- fix compilation error on Fedora 42
+
 * Sat Feb 15 2025 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.4-2.git3a4dfaf
 - bump upstream commit (3a4dfaf)
 
