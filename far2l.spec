@@ -1,4 +1,4 @@
-%global commit b57e232c6b709f7eabbca65ee635c702f811d31b
+%global commit fb42f6fbedf7a23b1acb443c5a250306cf0ff78a
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %bcond_without gui
 %if %{with gui}
@@ -8,8 +8,8 @@ Conflicts: far2l-tty
 Name: far2l-tty
 Conflicts: far2l
 %endif
-Version: 2.6.4
-Release: 4.git%{shortcommit}%{?dist}
+Version: 2.6.5
+Release: 1.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -18,8 +18,6 @@ License: GPLv2
 Url: https://github.com/elfmz/far2l
 
 Source0: https://github.com/elfmz/far2l/archive/%{commit}/far2l-%{shortcommit}.tar.gz
-
-Patch0: fix-UnicodeString-compilation-f42.patch
 
 BuildRequires: cmake gcc-c++
 %if %{with gui}
@@ -36,6 +34,10 @@ BuildRequires: libxml2-devel
 %if ! 0%{?rhel} || 0%{?rhel} < 9
 # libnfs is not in EPEL since RHEL 9
 BuildRequires: libnfs-devel
+%endif
+%if ! 0%{?fedora} || 0%{?fedora} >= 42
+# libnfs requires gnutls since Fedora 42
+BuildRequires: gnutls-devel
 %endif
 BuildRequires: neon-devel
 BuildRequires: libarchive-devel
@@ -59,7 +61,7 @@ Used code from projects:
 
 
 %prep
-%autosetup -n far2l-%{commit} -p1
+%autosetup -n far2l-%{commit}
 
 %build
 %set_build_flags
@@ -131,6 +133,10 @@ cmake -DUSEWX=no \
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Sat Apr 5 2025 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.5-1.gitfb42f6f
+- bump upstream commit (fb42f6f)
+- bump version to 2.6.5
+
 * Mon Feb 17 2025 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.4-4.gitb57e232
 - fix missing help pages
 
