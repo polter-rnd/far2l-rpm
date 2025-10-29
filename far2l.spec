@@ -1,4 +1,4 @@
-%global commit 3d66329bda549ec572c12def3dc8395e68b6ecf8
+%global commit 3cec374f97f5c38dec7c314b1a639d198a40d137
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %bcond_without gui
 %if %{with gui}
@@ -8,8 +8,8 @@ Conflicts: far2l-tty
 Name: far2l-tty
 Conflicts: far2l
 %endif
-Version: 2.6.5
-Release: 3.git%{shortcommit}%{?dist}
+Version: 2.7.0
+Release: 1.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -218,6 +218,10 @@ cmake -DUSEWX=no \
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Wed Oct 29 2025 Pavel Artsishevsky <polter.rnd@gmail.com> 2.7.0-1.git3cec374
+- bump upstream commit (3cec374)
+- bump version to 2.7.0
+
 * Wed Oct 29 2025 Pavel Artsishevsky <polter.rnd@gmail.com> 2.6.5-3.git3d66329
 - do not install TTY icons and desktop files for GUI version
 
