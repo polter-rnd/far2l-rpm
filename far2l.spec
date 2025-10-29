@@ -9,7 +9,7 @@ Name: far2l-tty
 Conflicts: far2l
 %endif
 Version: 2.7.0
-Release: 1.git%{shortcommit}%{?dist}
+Release: 2.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -89,64 +89,10 @@ cmake -DUSEWX=no \
     # Do not install GUI desktop files for tty-only version
     rm -f %{buildroot}%{_datadir}/applications/far2l.desktop
     rm -f %{buildroot}%{_datadir}/applications/far2ledit.desktop
-    # Do not install GUI icons for tty-only version
-    rm -f %{buildroot}%{_datadir}/icons/far2l-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/far2ledit-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/1024x1024/apps/far2l-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/1024x1024/apps/far2ledit-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/128x128/apps/far2l-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/128x128/apps/far2ledit-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/16x16/apps/far2l-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/16x16/apps/far2ledit-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/192x192/apps/far2l-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/192x192/apps/far2ledit-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/24x24/apps/far2l-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/24x24/apps/far2ledit-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/256x256/apps/far2l-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/256x256/apps/far2ledit-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/far2l-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/far2ledit-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/far2l-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/far2ledit-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/512x512/apps/far2l-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/512x512/apps/far2ledit-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/64x64/apps/far2l-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/64x64/apps/far2ledit-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/72x72/apps/far2l-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/72x72/apps/far2ledit-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/96x96/apps/far2l-wx.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/96x96/apps/far2ledit-wx.svg
 %else
     # Do not install TTY desktop files for GUI version
     rm -f %{buildroot}%{_datadir}/applications/far2l-tty.desktop
     rm -f %{buildroot}%{_datadir}/applications/far2ledit-tty.desktop
-    # Do not install TTY icons for GUI version
-    rm -f %{buildroot}%{_datadir}/icons/far2l.svg
-    rm -f %{buildroot}%{_datadir}/icons/far2ledit.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/1024x1024/apps/far2l.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/1024x1024/apps/far2ledit.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/128x128/apps/far2l.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/128x128/apps/far2ledit.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/16x16/apps/far2l.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/16x16/apps/far2ledit.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/192x192/apps/far2l.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/192x192/apps/far2ledit.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/24x24/apps/far2l.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/24x24/apps/far2ledit.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/256x256/apps/far2l.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/256x256/apps/far2ledit.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/far2l.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/far2ledit.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/far2l.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/far2ledit.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/512x512/apps/far2l.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/512x512/apps/far2ledit.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/64x64/apps/far2l.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/64x64/apps/far2ledit.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/72x72/apps/far2l.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/72x72/apps/far2ledit.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/96x96/apps/far2l.svg
-    rm -f %{buildroot}%{_datadir}/icons/hicolor/96x96/apps/far2ledit.svg
 %endif
 
 %files
@@ -157,35 +103,10 @@ cmake -DUSEWX=no \
 %if %{with gui}
 %{_datadir}/applications/far2l.desktop
 %{_datadir}/applications/far2ledit.desktop
-%{_datadir}/icons/far2l-wx.svg
-%{_datadir}/icons/far2ledit-wx.svg
-%{_datadir}/icons/hicolor/1024x1024/apps/far2l-wx.svg
-%{_datadir}/icons/hicolor/1024x1024/apps/far2ledit-wx.svg
-%{_datadir}/icons/hicolor/128x128/apps/far2l-wx.svg
-%{_datadir}/icons/hicolor/128x128/apps/far2ledit-wx.svg
-%{_datadir}/icons/hicolor/16x16/apps/far2l-wx.svg
-%{_datadir}/icons/hicolor/16x16/apps/far2ledit-wx.svg
-%{_datadir}/icons/hicolor/192x192/apps/far2l-wx.svg
-%{_datadir}/icons/hicolor/192x192/apps/far2ledit-wx.svg
-%{_datadir}/icons/hicolor/24x24/apps/far2l-wx.svg
-%{_datadir}/icons/hicolor/24x24/apps/far2ledit-wx.svg
-%{_datadir}/icons/hicolor/256x256/apps/far2l-wx.svg
-%{_datadir}/icons/hicolor/256x256/apps/far2ledit-wx.svg
-%{_datadir}/icons/hicolor/32x32/apps/far2l-wx.svg
-%{_datadir}/icons/hicolor/32x32/apps/far2ledit-wx.svg
-%{_datadir}/icons/hicolor/48x48/apps/far2l-wx.svg
-%{_datadir}/icons/hicolor/48x48/apps/far2ledit-wx.svg
-%{_datadir}/icons/hicolor/512x512/apps/far2l-wx.svg
-%{_datadir}/icons/hicolor/512x512/apps/far2ledit-wx.svg
-%{_datadir}/icons/hicolor/64x64/apps/far2l-wx.svg
-%{_datadir}/icons/hicolor/64x64/apps/far2ledit-wx.svg
-%{_datadir}/icons/hicolor/72x72/apps/far2l-wx.svg
-%{_datadir}/icons/hicolor/72x72/apps/far2ledit-wx.svg
-%{_datadir}/icons/hicolor/96x96/apps/far2l-wx.svg
-%{_datadir}/icons/hicolor/96x96/apps/far2ledit-wx.svg
 %else
 %{_datadir}/applications/far2l-tty.desktop
 %{_datadir}/applications/far2ledit-tty.desktop
+%endif
 %{_datadir}/icons/far2l.svg
 %{_datadir}/icons/far2ledit.svg
 %{_datadir}/icons/hicolor/1024x1024/apps/far2l.svg
@@ -212,12 +133,40 @@ cmake -DUSEWX=no \
 %{_datadir}/icons/hicolor/72x72/apps/far2ledit.svg
 %{_datadir}/icons/hicolor/96x96/apps/far2l.svg
 %{_datadir}/icons/hicolor/96x96/apps/far2ledit.svg
-%endif
+%{_datadir}/icons/far2l-wx.svg
+%{_datadir}/icons/far2ledit-wx.svg
+%{_datadir}/icons/hicolor/1024x1024/apps/far2l-wx.svg
+%{_datadir}/icons/hicolor/1024x1024/apps/far2ledit-wx.svg
+%{_datadir}/icons/hicolor/128x128/apps/far2l-wx.svg
+%{_datadir}/icons/hicolor/128x128/apps/far2ledit-wx.svg
+%{_datadir}/icons/hicolor/16x16/apps/far2l-wx.svg
+%{_datadir}/icons/hicolor/16x16/apps/far2ledit-wx.svg
+%{_datadir}/icons/hicolor/192x192/apps/far2l-wx.svg
+%{_datadir}/icons/hicolor/192x192/apps/far2ledit-wx.svg
+%{_datadir}/icons/hicolor/24x24/apps/far2l-wx.svg
+%{_datadir}/icons/hicolor/24x24/apps/far2ledit-wx.svg
+%{_datadir}/icons/hicolor/256x256/apps/far2l-wx.svg
+%{_datadir}/icons/hicolor/256x256/apps/far2ledit-wx.svg
+%{_datadir}/icons/hicolor/32x32/apps/far2l-wx.svg
+%{_datadir}/icons/hicolor/32x32/apps/far2ledit-wx.svg
+%{_datadir}/icons/hicolor/48x48/apps/far2l-wx.svg
+%{_datadir}/icons/hicolor/48x48/apps/far2ledit-wx.svg
+%{_datadir}/icons/hicolor/512x512/apps/far2l-wx.svg
+%{_datadir}/icons/hicolor/512x512/apps/far2ledit-wx.svg
+%{_datadir}/icons/hicolor/64x64/apps/far2l-wx.svg
+%{_datadir}/icons/hicolor/64x64/apps/far2ledit-wx.svg
+%{_datadir}/icons/hicolor/72x72/apps/far2l-wx.svg
+%{_datadir}/icons/hicolor/72x72/apps/far2ledit-wx.svg
+%{_datadir}/icons/hicolor/96x96/apps/far2l-wx.svg
+%{_datadir}/icons/hicolor/96x96/apps/far2ledit-wx.svg
 %{_datadir}/bash-completion/completions/far2l
 %{_mandir}/man1/far2l.*
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Wed Oct 29 2025 Pavel Artsishevsky <polter.rnd@gmail.com> 2.7.0-2.git3cec374
+- always install all icons
+
 * Wed Oct 29 2025 Pavel Artsishevsky <polter.rnd@gmail.com> 2.7.0-1.git3cec374
 - bump upstream commit (3cec374)
 - bump version to 2.7.0
