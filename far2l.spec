@@ -1,4 +1,4 @@
-%global commit 3cec374f97f5c38dec7c314b1a639d198a40d137
+%global commit b9702f965384b8b227e6e7c0da0fa62c833ec9a9
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %bcond_without gui
 %if %{with gui}
@@ -9,7 +9,7 @@ Name: far2l-tty
 Conflicts: far2l
 %endif
 Version: 2.7.0
-Release: 2.git%{shortcommit}%{?dist}
+Release: 3.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -164,6 +164,9 @@ cmake -DUSEWX=no \
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Sat Jan 10 2026 Pavel Artsishevsky <polter.rnd@gmail.com> 2.7.0-3.gitb9702f9
+- bump upstream commit (b9702f9)
+
 * Wed Oct 29 2025 Pavel Artsishevsky <polter.rnd@gmail.com> 2.7.0-2.git3cec374
 - always install all icons
 
