@@ -1,4 +1,4 @@
-%global commit c1d01873c54b1777a32e6ec99d7902210ed66db7
+%global commit dd06e95e1c8ffb6ce26db0c5d5196b3c09b0260f
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %bcond_without gui
 %if %{with gui}
@@ -9,7 +9,7 @@ Name: far2l-tty
 Conflicts: far2l
 %endif
 Version: 2.8.0
-Release: 2.git%{shortcommit}%{?dist}
+Release: 3.git%{shortcommit}%{?dist}
 
 Summary: Linux port of FAR v2
 
@@ -164,6 +164,9 @@ cmake -DUSEWX=no \
 %lang(ru) %{_mandir}/ru/man1/far2l.*
 
 %changelog
+* Sun May 17 2026 Pavel Artsishevsky <polter.rnd@gmail.com> 2.8.0-3.gitdd06e95
+- bump upstream commit (dd06e95)
+
 * Wed Apr 29 2026 Pavel Artsishevsky <polter.rnd@gmail.com> 2.8.0-2.gitc1d0187
 - bump upstream commit (c1d0187)
 
